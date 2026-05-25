@@ -1,0 +1,107 @@
+{
+  "collections": {
+    "users": {
+      "description": "System users and their roles",
+      "fields": {
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "Full name" },
+        "role": { "type": "string", "description": "admin, lawyer, or assistant" },
+        "professionalId": { "type": "string", "description": "Reference to professional record, if applicable" },
+        "createdAt": { "type": "timestamp" },
+        "status": { "type": "string", "description": "active or blocked" }
+      }
+    },
+    "professionals": {
+      "description": "Legal professional records",
+      "fields": {
+        "userId": { "type": "string", "description": "Reference to user" },
+        "fullName": { "type": "string" },
+        "professionalRole": { "type": "string", "description": "Advogado, Assistente, Estagiário" },
+        "licenseNumber": { "type": "string", "optional": true },
+        "email": { "type": "string" },
+        "phone": { "type": "string" }
+      }
+    },
+    "roles": {
+      "description": "Configurable hierarchy and job titles",
+      "fields": {
+        "title": { "type": "string" },
+        "permissions": { "type": "array" }
+      }
+    },
+    "clients": {
+      "description": "Legal clients",
+      "fields": {
+        "fullName": { "type": "string" },
+        "documentId": { "type": "string", "description": "NIF or ID Card number" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "createdAt": { "type": "timestamp" },
+        "createdBy": { "type": "string" }
+      }
+    },
+    "contractModels": {
+      "description": "Templated contract terms",
+      "fields": {
+        "title": { "type": "string" },
+        "content": { "type": "string", "description": "Draft text with placeholders" },
+        "lastUpdated": { "type": "timestamp" }
+      }
+    },
+    "contracts": {
+      "description": "Generated and active contracts",
+      "fields": {
+        "clientId": { "type": "string" },
+        "modelId": { "type": "string" },
+        "status": { "type": "string", "description": "draft, approved, active" },
+        "content": { "type": "string" },
+        "value": { "type": "number" },
+        "startDate": { "type": "timestamp" },
+        "endDate": { "type": "timestamp", "optional": true }
+      }
+    },
+    "legalServices": {
+      "description": "Available legal services and pricing",
+      "fields": {
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" }
+      }
+    },
+    "cases": {
+      "description": "Legal processes/lawsuits",
+      "fields": {
+        "caseNumber": { "type": "string" },
+        "clientId": { "type": "string" },
+        "lawyerId": { "type": "string" },
+        "title": { "type": "string" },
+        "status": { "type": "string", "description": "active, archived, pending" },
+        "description": { "type": "string" },
+        "court": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      }
+    },
+    "finances": {
+      "description": "Financial records (payments and expenses)",
+      "fields": {
+        "type": { "type": "string", "description": "revenue or expense" },
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "date": { "type": "timestamp" },
+        "description": { "type": "string" },
+        "relatedId": { "type": "string", "optional": true, "description": "Link to case or contract" }
+      }
+    },
+    "tasks": {
+      "description": "Agenda and tasks",
+      "fields": {
+        "title": { "type": "string" },
+        "assignedTo": { "type": "string" },
+        "dueDate": { "type": "timestamp" },
+        "status": { "type": "string" },
+        "type": { "type": "string", "description": "meeting, hearing, task" }
+      }
+    }
+  }
+}

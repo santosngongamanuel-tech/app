@@ -1,0 +1,8 @@
+{
+  "name": "ANGADV - Sistema Jurídico",
+  "description": "Plataforma integrada de gestão jurídica ANGADV, focada em eficiência e controle de processos, clientes e contratos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
